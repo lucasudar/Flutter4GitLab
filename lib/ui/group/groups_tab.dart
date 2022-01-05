@@ -38,7 +38,7 @@ class _State extends CommListState<TabGroups> {
           Scaffold.of(context).showSnackBar(
             SnackBar(
               content: Text("${group.name}: ${group.description}"),
-              backgroundColor: Theme.of(context).primaryColor,
+              backgroundColor: Theme.of(context).accentColor,
             ),
           );
         },

@@ -4,7 +4,6 @@ import 'package:F4Lab/gitlab_client.dart';
 import 'package:F4Lab/util/widget_util.dart';
 import 'package:F4Lab/widget/comm_ListView.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:xml/xml.dart';
 
 class TabActivity extends CommListWidget {
@@ -21,7 +20,7 @@ class FeedState extends CommListState<TabActivity> {
     final client = GitlabClient.newInstance();
     final data = await client.getRss(url).then((resp) {
       final data = utf8.decode(resp.bodyBytes);
-      final XmlDocument doc = parse(data);
+      final XmlDocument doc = XmlDocument.parse(data);
       var entries = doc.findAllElements("entry");
       final feeds = entries.map((ele) {
         return {
