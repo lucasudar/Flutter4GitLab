@@ -78,6 +78,9 @@ class ApiEndPoint {
 
   static String mergeRequestDiscussion(int projectId, int mrIId) =>
       "projects/$projectId/merge_requests/$mrIId/discussions";
+
+  // static String downloadGroupAvatar(int groupId) =>
+  //     "/groups/$groupId/avatar";
 }
 
 class ApiService {
@@ -201,4 +204,14 @@ class ApiService {
             true, resp.data!.map((item) => Diff.fromJson(item)).toList()))
         .catchError((err) => ApiResp<List<Diff>>(false, null, err));
   }
+
+  // static Future downloadGroupAvatar(int groupId) {
+  //   final endPoint = ApiEndPoint.downloadGroupAvatar(groupId);
+  //   final client = GitlabClient.newInstance();
+  //   return client.get(Uri.parse(endPoint)).then((resp) {
+  //     return resp;
+  //   }).catchError((err) {
+  //     return ApiResp<Response>(false, null, err?.toString());
+  //   }).whenComplete(client.close);
+  // }
 }

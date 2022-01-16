@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 Widget loadAvatar(String? url, String? name, {Color color = Colors.teal}) {
   assert(name != null);
   if (url != null) {
-    debugPrint("[loadAvatar] Start load: $url");
+    // debugPrint("[loadAvatar] Start load: $url");
     NetworkImage image;
     image = new NetworkImage(url);
     return CircleAvatar(
