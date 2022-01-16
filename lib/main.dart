@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
         providers: _buildProviders(context),
         child: Consumer<ThemeProvider>(builder: (context, theme, _) {
           return MaterialApp(
+              debugShowCheckedModeBanner: false,
               title: 'GitLab',
               initialRoute: '/',
               theme: theme.currentTheme,
